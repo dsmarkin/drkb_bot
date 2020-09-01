@@ -10,7 +10,7 @@ import os
 from flask import Flask, request
 import logging
 bot = telebot.TeleBot('1337907902:AAE1naK0IgF-pHrun--35cmzeZf566-rIGg')
-# Проверим, есть ли переменная окружения Хероку (как ее добавить смотрите ниже)
+# Проверим, есть ли переменная окружения Хероку 
 if "HEROKU" in list(os.environ.keys()):
     logger = telebot.logger
     telebot.logger.setLevel(logging.INFO)
@@ -32,14 +32,16 @@ else:
     bot.remove_webhook()
     bot.polling(none_stop=True)
 
-
+#описываем клавиатуру
 keyboard1 = telebot.types.ReplyKeyboardMarkup()
 keyboard1.row('Привет', 'Пока', 'Что мы делаем?')
 
+#первое сообщение бота
 @bot.message_handler(commands=['start'])
 def start_message(message):
     bot.send_message(message.chat.id, 'successfully' , reply_markup=keyboard1)
 
+    #обработка пользовательских ответов
 @bot.message_handler(content_types=['text'])
 def send_text(message):
     if message.text.lower() == 'привет':
