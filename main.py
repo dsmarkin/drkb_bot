@@ -6,9 +6,9 @@ Created on Mon Aug 31 19:28:14 2020
 """
 
 import telebot
-import os
-from flask import Flask, request
-import logging
+#import os
+#from flask import Flask, request
+#import logging
 bot = telebot.TeleBot('1337907902:AAE1naK0IgF-pHrun--35cmzeZf566-rIGg')
 """
 # Проверим, есть ли переменная окружения Хероку 
